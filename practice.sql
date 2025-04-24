@@ -153,5 +153,8 @@ Data after applying 2NF:
 | 203       | Math      | Dr. A       |
 | 203       | Biology   | Dr. D       |
 +-----------+-----------+-------------+
-
+Step 3: Convert to 3NF (Third Normal Form)
+Problem with 2NF:
+Instructor depends on Course → This is a transitive dependency (StudentID, Course → Instructor, and Course → Instructor).
+Instructor info should be stored independently of student enrollment.
 
