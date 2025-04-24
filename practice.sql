@@ -94,5 +94,23 @@ It has a primary key.
 All columns contain atomic (indivisible) values.
 There are no repeating groups or arrays.
 
+############################--Solution---#########################################33
+CREATE TABLE Students_1NF (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    Course VARCHAR(50),
+    Instructor VARCHAR(50),
+    PRIMARY KEY (StudentID, Course)
+);
+Data after applying 1NF:
++-----------+-------------+-----------+-------------+
+| StudentID | StudentName | Course    | Instructor  |
++-----------+-------------+-----------+-------------+
+| 201       | Alice       | Math      | Dr. A       |
+| 201       | Alice       | Physics   | Dr. B       |
+| 202       | Bob         | Chemistry | Dr. C       |
+| 203       | Charlie     | Math      | Dr. A       |
+| 203       | Charlie     | Biology   | Dr. D       |
++-----------+-------------+-----------+-------------+
 
 
