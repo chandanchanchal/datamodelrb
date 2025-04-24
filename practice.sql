@@ -158,3 +158,64 @@ Problem with 2NF:
 Instructor depends on Course → This is a transitive dependency (StudentID, Course → Instructor, and Course → Instructor).
 Instructor info should be stored independently of student enrollment.
 
+------------------------------------------------------Solution for 3NF-------------------------------------
+Solution (3NF):
+  Split into:
+    Students Table
+    Courses Table (Course → Instructor)
+    Enrollments Table (StudentID, Course)
+
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(50)
+);
+
+CREATE TABLE Courses (
+    Course VARCHAR(50) PRIMARY KEY,
+    Instructor VARCHAR(50)
+);
+
+CREATE TABLE Enrollments (
+    StudentID INT,
+    Course VARCHAR(50),
+    PRIMARY KEY (StudentID, Course),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (Course) REFERENCES Courses(Course)
+);
+-----------------------------------------------------------------------------------------------------
+Data after applying 3NF:
+ Students Table
++-----------+-------------+
+| StudentID | StudentName |
++-----------+-------------+
+| 201       | Alice       |
+| 202       | Bob         |
+| 203       | Charlie     |
++-----------+-------------+
+Courses Table
++-----------+-------------+
+| Course    | Instructor  |
++-----------+-------------+
+| Math      | Dr. A       |
+| Physics   | Dr. B       |
+| Chemistry | Dr. C       |
+| Biology   | Dr. D       |
++-----------+-------------+
+
+Enrollments Table
++-----------+-----------+
+| StudentID | Course    |
++-----------+-----------+
+| 201       | Math      |
+| 201       | Physics   |
+| 202       | Chemistry |
+| 203       | Math      |
+| 203       | Biology   |
++-----------+-----------+
+
+Normal Form                 Issues Resolved                                         Tables Created
+1NF |                       Atomic columns, no multi-valued fields |                Students_1NF
+2NF |                       Removed partial dependency (StudentName) |              Students, Enrollments
+3NF |                       Removed transitive dependency (Instructor) |            Students, Courses, Enrollments
+
+
