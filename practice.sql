@@ -53,3 +53,22 @@ INSERT INTO courses (course_id, course_name, student_id) VALUES
 (109, 'English Literature', 9),
 (110, 'Philosophy', 10);
 
+SELECT full_name, marks FROM students;
+
+SELECT * FROM students
+WHERE marks > 80;
+
+SELECT * FROM students
+WHERE birth_date > '2002-01-01';
+
+SELECT AVG(marks) AS avg_marks FROM students;
+
+SELECT MAX(marks) AS highest, MIN(marks) AS lowest FROM students;
+SELECT full_name, marks FROM students ORDER BY marks DESC;
+SELECT full_name, marks FROM students
+ORDER BY marks DESC
+LIMIT 3;
+
+
+
+
