@@ -70,5 +70,23 @@ ORDER BY marks DESC
 LIMIT 3;
 
 
+-----------------------------------Exercise-------------------------For 1NF-to-2NF-----Starts-------------
+Exercise: Normalize the Student_Courses Table to 1NF and 2NF
+Given Unnormalized Table (UNF)
+#A university stores student enrollment details in the following table:
+
+Student_Courses
++-----------+---------+----------------------+------------+
+| StudentID | Name    | Courses              | Instructors|
++-----------+---------+----------------------+------------+
+| 201       | Alice   | Math, Physics        | Dr. A, Dr. B|
+| 202       | Bob     | Chemistry            | Dr. C      |
+| 203       | Charlie | Math, Biology        | Dr. A, Dr. D|
++-----------+---------+----------------------+------------+
+Issues:
+The Courses column contains multiple values (not atomic).
+The Instructors column also contains multiple values.
+It violates the First Normal Form (1NF) rule.
+
 
 
