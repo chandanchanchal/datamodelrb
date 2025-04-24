@@ -122,3 +122,36 @@ Solution (2NF):
 Split the table into two:
 Student Table: StudentID → StudentName
 Enrollment Table: StudentID, Course → Instructor
+---------------------------------------------------------Solution for 2NF-----------------------------------------
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(50)
+);
+
+CREATE TABLE Enrollments (
+    StudentID INT,
+    Course VARCHAR(50),
+    Instructor VARCHAR(50),
+    PRIMARY KEY (StudentID, Course),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+);
+---------------------------------------------------------------------------------------------------------------------
+Data after applying 2NF:
++-----------+-------------+
+| StudentID | StudentName |
++-----------+-------------+
+| 201       | Alice       |
+| 202       | Bob         |
+| 203       | Charlie     |
++-----------+-------------+
++-----------+-----------+-------------+
+| StudentID | Course    | Instructor  |
++-----------+-----------+-------------+
+| 201       | Math      | Dr. A       |
+| 201       | Physics   | Dr. B       |
+| 202       | Chemistry | Dr. C       |
+| 203       | Math      | Dr. A       |
+| 203       | Biology   | Dr. D       |
++-----------+-----------+-------------+
+
+
