@@ -46,3 +46,13 @@ FROM
 LEFT JOIN 
     Track t ON a.AlbumId = t.AlbumId;
 
+---------------------------------------------------------------------
+
+SELECT 
+    t.Name AS TrackName, a.Title AS AlbumTitle
+FROM 
+    Track t
+LEFT JOIN 
+    Album a ON t.AlbumId = a.AlbumId;
+
+
