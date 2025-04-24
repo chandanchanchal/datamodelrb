@@ -113,4 +113,12 @@ Data after applying 1NF:
 | 203       | Charlie     | Biology   | Dr. D       |
 +-----------+-------------+-----------+-------------+
 
+Step 2: Convert to 2NF (Second Normal Form)
+Problem with 1NF:
+Composite Primary Key (StudentID, Course) → StudentName depends only on StudentID.
+This is a partial dependency, which violates 2NF.
 
+Solution (2NF):
+Split the table into two:
+Student Table: StudentID → StudentName
+Enrollment Table: StudentID, Course → Instructor
