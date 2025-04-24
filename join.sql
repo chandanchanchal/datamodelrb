@@ -28,3 +28,21 @@ INNER JOIN
 Expected Output:
 Only invoices tied to a valid customer.
 No invoices with orphaned customer IDs.
+
+------------------------------------------------------------------------
+
+List All Albums and Their Tracks (Including Albums Without Tracks)
+
+To show all albums, including those that don’t have any tracks. 
+A 
+3.RIGHT JOIN from Track to Album would do that in a database that supports it. 
+In SQLite, we reverse and use LEFT JOIN.
+
+Simulated RIGHT JOIN Using LEFT JOIN:
+SELECT 
+    a.AlbumId, a.Title AS AlbumTitle, t.TrackId, t.Name AS TrackName
+FROM 
+    Album a
+LEFT JOIN 
+    Track t ON a.AlbumId = t.AlbumId;
+
