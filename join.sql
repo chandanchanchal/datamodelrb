@@ -165,3 +165,13 @@ CREATE TABLE Review (
 );
 
 
+
+Open DBeaver.
+Click Database → New Connection → MySQL.
+Enter MySQL host, port, username, password.
+Click Finish.
+Create a New Database
+CREATE DATABASE TravelDB;
+USE TravelDB;
+
+
