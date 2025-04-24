@@ -67,5 +67,9 @@ Payment: Details of payments made for bookings.
 Transportation: Modes of transport (Flight, Train, Bus, etc.).
 Accommodation: Hotels or places travelers stay.
 Review: Ratings & feedback by travelers.
+  
+Step 2: Logical Model (Detailed Attributes & Relationships)
+Now, we define attributes and relationships.
+One traveler can have many bookings.
 
 
