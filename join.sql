@@ -55,4 +55,11 @@ FROM
 LEFT JOIN 
     Album a ON t.AlbumId = a.AlbumId;
 
+-----------------------------------Data Modeling Exercise: Travel Domain-----Starts-------------
+Step 1: Conceptual Model (High-Level Design)
+Entities(Table)& Relationships
+In the travel domain, key entities and their relationships can be defined as follows:
+Traveler: A person booking trips.
+Trip: Represents a journey taken by a traveler.
+
 
