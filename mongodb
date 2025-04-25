@@ -1,0 +1,105 @@
+
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.45.4_amd64.deb
+sudo apt install ./mongodb-compass_1.45.4_amd64.deb
+
+use travelDB
+
+db.destinations.insertMany([
+  {
+    "city": "Paris",
+    "country": "France",
+    "attractions": ["Eiffel Tower", "Louvre Museum"],
+    "average_cost": 1500,
+    "rating": 4.8
+  },
+  {
+    "city": "New York",
+    "country": "USA",
+    "attractions": ["Statue of Liberty", "Times Square"],
+    "average_cost": 2000,
+    "rating": 4.7
+  },
+  {
+    "city": "Tokyo",
+    "country": "Japan",
+    "attractions": ["Shibuya Crossing", "Mount Fuji"],
+    "average_cost": 1800,
+    "rating": 4.9
+  }
+]);
+
+4.1 Fetch all destinations:
+
+db.destinations.find().pretty()
+
+4.2 Find destinations in a specific country:
+
+db.destinations.find({ "country": "France" }).pretty()
+
+Story 1: Personalized Travel Recommendations
+Business Problem:
+A travel agency wants to recommend destinations based on travelers' interests and budget.
+Data Insights:
+
+Fetch destinations with high ratings (above 4.7) to ensure quality recommendations.
+Filter destinations by budget to match the traveler's affordability.
+Prioritize destinations with iconic attractions.
+Query Implementation:
+db.destinations.find({
+  "rating": { $gt: 4.7 },
+  "average_cost": { $lte: 1800 }
+}).pretty();
+##################################################################################################################
+
+use travelDB
+1.2 Create a Collection and Insert 100 Documents
+Here, we create a bookings collection with nested JSON data representing a travel booking system.
+db.bookings.insertMany([
+  {
+    "booking_id": 1,
+    "customer": {
+      "name": "John Doe",
+      "email": "john.doe@example.com"
+    },
+    "trip_details": {
+      "destination": "Paris",
+      "departure_date": "2025-06-15",
+      "return_date": "2025-06-25",
+      "accommodation": {
+        "hotel_name": "Grand Paris Hotel",
+        "rating": 4.5
+      }
+    },
+    "payment": {
+      "status": "Completed",
+      "amount": 1500.00
+    }
+  },
+  {
+    "booking_id": 2,
+    "customer": {
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com"
+    },
+    "trip_details": {
+      "destination": "New York",
+      "departure_date": "2025-07-10",
+      "return_date": "2025-07-20",
+      "accommodation": {
+        "hotel_name": "Manhattan Suites",
+        "rating": 4.2
+      }
+    },
+    "payment": {
+      "status": "Pending",
+      "amount": 1800.00
+    }
+  }
+  
+])
+
+######################################################################################
+db.bookings.find({}, { "customer.name": 1, "customer.email": 1, _id: 0 })
+db.bookings.find({}, { "customer.name": 0, "_id": 0 })
+
+
