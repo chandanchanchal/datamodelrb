@@ -1,0 +1,14 @@
+https://dev.mysql.com/downloads/workbench/
+cd ~/Downloads
+sudo apt -f install
+sudo dpkg -i mysql-workbench-community_8.0.42-1ubuntu22.04_amd64.deb
+mysql-workbench
+
+sudo apt -f install
+sudo kill -9 9671
+sudo rm /var/lib/dpkg/lock-frontend
+sudo dpkg --configure -a
+sudo apt update
+sudo apt -f install
+sudo dpkg -i mysql-workbench-community_8.0.42-1ubuntu22.04_amd64.deb
+mysql-workbench
